@@ -13,7 +13,7 @@ const AppRouter = () => (
       <Switch>
         <Route path='/' component={DashboardPage} exact={true} />
         <Route path='/create' component={AddHostingPlacePage} />
-        <Route path='/edit' component={EditHostingPlacePage} />
+        <Route path='/edit/:id' component={EditHostingPlacePage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

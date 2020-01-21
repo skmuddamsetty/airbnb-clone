@@ -10,9 +10,6 @@ const Header = () => (
     <NavLink to='/create' activeClassName='is-active'>
       Add Hosting Place
     </NavLink>
-    <NavLink to='/edit' activeClassName='is-active'>
-      Edit Hosting Place
-    </NavLink>
   </header>
 );
 
