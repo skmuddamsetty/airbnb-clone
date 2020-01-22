@@ -59,6 +59,18 @@ const sortByPrice = () => ({ type: 'SORT_BY_PRICE' });
 // SORT_BY_DATE
 const sortByDate = () => ({ type: 'SORT_BY_DATE' });
 
+// SET_START_DATE
+const setStartDate = (startDate = undefined) => ({
+  type: 'SET_START_DATE',
+  startDate
+});
+
+// SET_END_DATE
+const setEndDate = (endDate = undefined) => ({
+  type: 'SET_END_DATE',
+  endDate
+});
+
 const placesToStayReducerDefaultState = [];
 const placesToStayReducer = (
   state = placesToStayReducerDefaultState,
@@ -96,9 +108,38 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
       return { ...state, sortBy: 'price' };
     case 'SORT_BY_DATE':
       return { ...state, sortBy: 'date' };
+    case 'SET_START_DATE':
+      return { ...state, startDate: action.startDate };
+    case 'SET_END_DATE':
+      return { ...state, endDate: action.endDate };
     default:
       return state;
   }
+};
+
+// Get Visible Places to Stay
+const getVisiblePlacesToStay = (
+  placesToStay,
+  { text, sortBy, startDate, endDate }
+) => {
+  return placesToStay
+    .filter(placeToStay => {
+      const startDateMatch =
+        typeof startDate !== 'number' || placeToStay.createdAt >= startDate;
+      const endDateMatch =
+        typeof endDate !== 'number' || placeToStay.createdAt <= endDate;
+      const textMatch = placeToStay.title
+        .toLowerCase()
+        .includes(text.toLowerCase());
+      return startDateMatch && endDateMatch && textMatch;
+    })
+    .sort((a, b) => {
+      if (sortBy === 'date') {
+        return a.createdAt < b.createdAt ? 1 : -1;
+      } else if (sortBy === 'price') {
+        return a.price < b.price ? 1 : -1;
+      }
+    });
 };
 
 const store = createStore(
@@ -109,6 +150,13 @@ const store = createStore(
 );
 
 store.subscribe(() => {
+  const state = store.getState();
+
+  const visiblePlacesToStay = getVisiblePlacesToStay(
+    state.placesToStay,
+    state.filters
+  );
+  console.log(visiblePlacesToStay);
   console.log(store.getState());
 });
 
@@ -124,7 +172,9 @@ setTimeout(() => {
 
 setTimeout(() => {
   console.log('executing update action');
-  store.dispatch(editPlaceToStay(placetoStay1.placeToStay.id, { price: 500 }));
+  store.dispatch(
+    editPlaceToStay(placetoStay1.placeToStay.id, { price: 500, createdAt: 500 })
+  );
 }, 2000);
 
 setTimeout(() => {
@@ -141,3 +191,13 @@ setTimeout(() => {
   console.log('setting sort by date');
   store.dispatch(sortByDate());
 }, 4000);
+
+setTimeout(() => {
+  console.log('setting start date');
+  store.dispatch(setStartDate(20));
+}, 5000);
+
+setTimeout(() => {
+  console.log('setting end date');
+  store.dispatch(setEndDate(500));
+}, 5000);
