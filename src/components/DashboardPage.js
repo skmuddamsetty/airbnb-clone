@@ -1,5 +1,10 @@
 import React from 'react';
+import PlacesList from './PlacesList';
 
-const DashboardPage = () => <div>Dashboard Page</div>;
+const DashboardPage = () => (
+  <div>
+    <PlacesList />
+  </div>
+);
 
 export default DashboardPage;
