@@ -1,18 +1,27 @@
 import React from 'react';
+import moment from 'moment';
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 class PlaceForm extends React.Component {
-  state = {
-    title: '',
-    price: '',
-    summary: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: props.place ? props.place.title : '',
+      price: props.place ? (props.place.price / 100).toString() : '',
+      summary: props.place ? props.place.summary : '',
+      createdAt: props.place ? moment(props.place.createdAt) : moment(),
+      calendarFocused: false,
+      error: ''
+    };
+  }
   titleChangeHandler = e => {
     const title = e.target.value;
     this.setState(() => ({ title }));
   };
   priceChangeHandler = e => {
     const price = e.target.value;
-    if (price.match(/^\d*(\.\d{0,2})?$/)) {
+    if (!price || price.match(/^\d{1,}(\.\d{0,2})?$/)) {
       this.setState(() => ({ price }));
     }
   };
@@ -20,10 +29,33 @@ class PlaceForm extends React.Component {
     const summary = e.target.value;
     this.setState(() => ({ summary }));
   };
+  dateChangeHandler = createdAt => {
+    if (createdAt) {
+      this.setState(() => ({ createdAt }));
+    }
+  };
+  calendarFocusHandler = ({ focused }) => {
+    this.setState(() => ({ calendarFocused: focused }));
+  };
+  submitHandler = e => {
+    e.preventDefault();
+    if (!this.state.price || !this.state.title) {
+      this.setState(() => ({ error: 'Please Provide Title and Price' }));
+    } else {
+      this.setState(() => ({ error: '' }));
+      this.props.onSubmit({
+        title: this.state.title,
+        price: parseFloat(this.state.price, 10) * 100,
+        summary: this.state.summary,
+        createdAt: this.state.createdAt.valueOf()
+      });
+    }
+  };
   render() {
     return (
       <div>
-        <form>
+        {this.state.error ? <p>{this.state.error}</p> : ''}
+        <form onSubmit={this.submitHandler}>
           <input
             type='text'
             placeholder='Title'
@@ -36,6 +68,13 @@ class PlaceForm extends React.Component {
             placeholder='Price per night'
             value={this.state.price}
             onChange={this.priceChangeHandler}
+          />
+          <SingleDatePicker
+            date={this.state.createdAt}
+            onDateChange={this.dateChangeHandler}
+            focused={this.state.calendarFocused}
+            onFocusChange={this.calendarFocusHandler}
+            numberOfMonths={1}
           />
           <textarea
             placeholder='Summary'

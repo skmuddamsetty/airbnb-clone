@@ -18,7 +18,7 @@ store.dispatch(
   })
 );
 console.log(store.getState());
-store.dispatch(setTextFilter('kayak'));
+// store.dispatch(setTextFilter('kayak'));
 const state = store.getState();
 console.log(getVisiblePlaces(state.places, state.filters));
 const jsx = (

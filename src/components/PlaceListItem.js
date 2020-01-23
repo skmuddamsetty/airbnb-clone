@@ -1,13 +1,14 @@
 import React from 'react';
 import { removePlace } from '../actions/places';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const PlaceListItem = props => (
   <div>
-    <div>
+    <Link to={`/edit/${props.place.id}`}>
       <strong>Place Name:</strong>
       {props.place.title}
-    </div>
+    </Link>
     <div>
       <strong>Price:</strong>
       {props.place.price}
