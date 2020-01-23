@@ -1,5 +1,11 @@
 import React from 'react';
+import PlaceForm from './PlaceForm';
 
-const AddHostingPlacePage = () => <div>Add Page</div>;
+const AddHostingPlacePage = () => (
+  <div>
+    <h1>Add Place Page</h1>
+    <PlaceForm />
+  </div>
+);
 
 export default AddHostingPlacePage;
