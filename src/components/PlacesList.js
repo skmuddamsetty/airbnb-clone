@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PlaceListItem from './PlaceListItem';
+import getVisiblePlaces from '../selectors/places';
 
 const PlacesList = props => (
   <div>
     <h1>Places List</h1>
-    {props.places.length}
+    {props.places.map(place => {
+      return <PlaceListItem place={place} key={place.id} />;
+    })}
   </div>
 );
 
@@ -18,7 +22,7 @@ const PlacesList = props => (
 
 const mapStateToProps = state => {
   return {
-    places: state.places
+    places: getVisiblePlaces(state.places, state.filters)
   };
 };
 

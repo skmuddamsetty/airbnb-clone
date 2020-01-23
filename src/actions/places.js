@@ -5,6 +5,15 @@ export const addPlace = ({
   title = '',
   summary = '',
   price = 0,
+  location = '',
+  number_of_guests = 0,
+  number_of_bed_rooms = 0,
+  number_of_beds = 0,
+  number_of_bath_rooms = 0,
+  amenities = [],
+  accessibility = '',
+  availability = '',
+  reviews = [],
   createdAt = 0
 } = {}) => ({
   type: 'ADD_PLACE',
@@ -13,7 +22,16 @@ export const addPlace = ({
     title,
     summary,
     price,
-    createdAt
+    createdAt,
+    location,
+    number_of_guests,
+    number_of_bed_rooms,
+    number_of_beds,
+    number_of_bath_rooms,
+    amenities,
+    accessibility,
+    availability,
+    reviews
   }
 });
 
