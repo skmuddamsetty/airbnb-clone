@@ -1,7 +1,7 @@
 import React from 'react';
 import PlaceForm from './PlaceForm';
 import { connect } from 'react-redux';
-import { editPlace } from '../actions/places';
+import { editPlace, removePlace } from '../actions/places';
 
 const EditHostingPlacePage = props => {
   return (
@@ -14,6 +14,16 @@ const EditHostingPlacePage = props => {
           props.history.push('/');
         }}
       />
+      <div>
+        <button
+          onClick={e => {
+            props.dispatch(removePlace({ id: props.place.id }));
+            props.history.push('/');
+          }}
+        >
+          Remove
+        </button>
+      </div>
     </div>
   );
 };
