@@ -81,7 +81,9 @@ class PlaceForm extends React.Component {
             value={this.state.summary}
             onChange={this.summaryChangeHandler}
           ></textarea>
-          <button type='submit'>Submit</button>
+          <button className='button' type='submit'>
+            Submit
+          </button>
         </form>
       </div>
     );
