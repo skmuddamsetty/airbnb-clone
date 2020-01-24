@@ -14,11 +14,13 @@ export const addPlace = ({
   accessibility = '',
   availability = '',
   reviews = [],
-  createdAt = 0
+  createdAt = 0,
+  id = undefined,
+  bullet_points = []
 } = {}) => ({
   type: 'ADD_PLACE',
   place: {
-    id: uuid(),
+    id: undefined ? uuid() : id,
     title,
     summary,
     price,
@@ -31,7 +33,8 @@ export const addPlace = ({
     amenities,
     accessibility,
     availability,
-    reviews
+    reviews,
+    bullet_points
   }
 });
 

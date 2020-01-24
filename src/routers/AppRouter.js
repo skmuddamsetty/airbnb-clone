@@ -5,6 +5,7 @@ import AddHostingPlacePage from '../components/AddHostingPlace';
 import EditHostingPlacePage from '../components/EditHostingPlace';
 import NotFoundPage from '../components/NotFoundPage';
 import Header from '../components/Header';
+import PlaceDetailView from '../components/PlaceDetailView';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const AppRouter = () => (
         <Route path='/' component={DashboardPage} exact={true} />
         <Route path='/create' component={AddHostingPlacePage} />
         <Route path='/edit/:id' component={EditHostingPlacePage} />
+        <Route path='/place-view/:id' component={PlaceDetailView} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

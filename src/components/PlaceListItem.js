@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const PlaceListItem = props => (
   <div>
-    <Link to={`/edit/${props.place.id}`}>
+    <Link to={`/place-view/${props.place.id}`}>
       <strong>Place Name:</strong>
       {props.place.title}
     </Link>

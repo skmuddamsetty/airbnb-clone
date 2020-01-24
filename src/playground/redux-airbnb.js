@@ -21,6 +21,24 @@ const demoState = {
       reviews: [
         'The apartment is sparkling clean and i am glad i found this amazing apartment. The neighborhood is safe and the building is secure . I look forward to my future stays in this unit !!!',
         'The location was ideal. It was between Ann Arbor and Detroit which was perfect for exploring. There was plenty of parking and the building was secure. The residents that we came in contact with here all very nice as well as the lady working at the front desk. The place was nicely furnished. There was also a lot of really good food in the surrounding area.'
+      ],
+      bullet_points: [
+        {
+          heading: 'Entire home',
+          sub_heading: 'You’ll have the apartment to yourself.'
+        },
+        {
+          heading: 'Self check-in',
+          sub_heading: 'You can check in with the doorman.'
+        },
+        {
+          heading: 'Sparkling clean',
+          sub_heading: '2 recent guests said this place was sparkling clean.'
+        },
+        {
+          heading: 'Experienced host',
+          sub_heading: 'Service has 159 reviews for other places.'
+        }
       ]
     }
   ],

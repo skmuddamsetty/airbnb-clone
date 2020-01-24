@@ -3,8 +3,9 @@ html {
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Fira Code', Helvetica, Arial, sans-serif;
   font-size: $m-size;
+  color: rgb(72, 72, 72) !important;
 }
 
 button {
