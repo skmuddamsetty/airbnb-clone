@@ -38,6 +38,12 @@ const PlaceDetailView = props => (
       })}
     </div>
     <div>{props.place.summary}</div>
+    <div>
+      <h4>Ameneties</h4>
+      {props.place.amenities.map(amenity => {
+        return <p>{amenity}</p>;
+      })}
+    </div>
   </div>
 );
 
