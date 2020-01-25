@@ -1,0 +1,10 @@
+.amenities {
+  column-width: 25rem;
+  column-gap: 2rem;
+  &__item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding: 1rem;
+    margin: 0 0 1em 0;
+  }
+}

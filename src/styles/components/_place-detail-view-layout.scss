@@ -24,36 +24,4 @@
     font-size: 1.4rem;
     margin-bottom: 1.6rem;
   }
-
-  &__room-details {
-    span {
-      &:not(:last-child) {
-        margin-right: 1.5rem;
-      }
-    }
-  }
-
-  .divider {
-    border-bottom: 1px solid #f4f2f2;
-    margin: 1.6rem 0;
-  }
-}
-
-.bullet-points {
-  &__box {
-    &:not(:first-child) {
-      margin-top: 1.6rem;
-    }
-  }
-}
-
-.amenities {
-  column-width: 25rem;
-  column-gap: 2rem;
-  &__item {
-    break-inside: avoid;
-    page-break-inside: avoid;
-    padding: 1rem;
-    margin: 0 0 1em 0;
-  }
 }

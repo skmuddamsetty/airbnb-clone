@@ -5,7 +5,7 @@ import AddHostingPlacePage from '../components/AddHostingPlace';
 import EditHostingPlacePage from '../components/EditHostingPlace';
 import NotFoundPage from '../components/NotFoundPage';
 import Header from '../components/Header';
-import PlaceDetailView from '../components/PlaceDetailView';
+import PlaceDetailView from '../components/PlaceDetails/PlaceDetailView';
 
 const AppRouter = () => (
   <BrowserRouter>
