@@ -7,20 +7,22 @@ import PlacePlanOverview from './PlacePlanOverview';
 import BookingOptionsBox from '../BookingOptionsBox/BookingOptionsBox';
 
 const PlaceDetailView = props => (
-  <div className='place-detail-view'>
-    <div className='place-detail-view__overview'>
-      <h1>{props.place.title}</h1>
-      <p className='place-detail-view__location'>{props.place.location}</p>
-      <PlacePlanOverview place={props.place} />
-      <Divider />
-      <AttractiveFeatures place={props.place} />
-      <Divider />
-      <div>{props.place.summary}</div>
-      <Divider />
-      <Amenities place={props.place} />
-    </div>
-    <div className='place-detail-view__booking-box'>
-      <BookingOptionsBox />
+  <div className='content-container'>
+    <div className='place-detail-view'>
+      <div className='place-detail-view__overview'>
+        <h1>{props.place.title}</h1>
+        <p className='place-detail-view__location'>{props.place.location}</p>
+        <PlacePlanOverview place={props.place} />
+        <Divider />
+        <AttractiveFeatures place={props.place} />
+        <Divider />
+        <div>{props.place.summary}</div>
+        <Divider />
+        <Amenities place={props.place} />
+      </div>
+      <div className='place-detail-view__booking-box'>
+        <BookingOptionsBox />
+      </div>
     </div>
   </div>
 );
