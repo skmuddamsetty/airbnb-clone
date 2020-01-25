@@ -5,12 +5,10 @@
   justify-content: space-between;
   &__overview {
     flex: 0 0 65%;
-    padding-right: 13rem;
+    padding-right: 10rem;
   }
   &__booking-box {
     flex: 1;
-    border: 1px solid #f0eeee;
-    padding: 2rem;
   }
   h1 {
     font-size: 3.2rem;

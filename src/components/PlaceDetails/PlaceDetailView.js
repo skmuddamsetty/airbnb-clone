@@ -4,6 +4,7 @@ import Divider from '../Divider';
 import Amenities from './Amenities';
 import AttractiveFeatures from './AttractiveFeatures';
 import PlacePlanOverview from './PlacePlanOverview';
+import BookingOptionsBox from '../BookingOptionsBox/BookingOptionsBox';
 
 const PlaceDetailView = props => (
   <div className='place-detail-view'>
@@ -18,7 +19,9 @@ const PlaceDetailView = props => (
       <Divider />
       <Amenities place={props.place} />
     </div>
-    <div className='place-detail-view__booking-box'>Price Summary</div>
+    <div className='place-detail-view__booking-box'>
+      <BookingOptionsBox />
+    </div>
   </div>
 );
 
