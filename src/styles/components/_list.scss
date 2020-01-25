@@ -48,6 +48,9 @@
       margin: 0;
       font-size: $m-size;
     }
+    .formatted-price {
+      font-weight: 700;
+    }
   }
   &__message {
     align-items: center;

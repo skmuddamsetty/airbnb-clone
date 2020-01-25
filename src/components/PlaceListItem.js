@@ -4,6 +4,7 @@ import moment from 'moment';
 import numeral from 'numeral';
 import PlacePlanOverview from './PlaceDetails/PlacePlanOverview';
 import Amenities from '../components/PlaceDetails/Amenities';
+import PriceFormatter from './Utils/PriceFormatter';
 
 const PlaceListItem = props => (
   <Link to={`/place-view/${props.place.id}`} className='list-item'>
@@ -21,7 +22,7 @@ const PlaceListItem = props => (
       </span>
     </div>
     <h3 className='list-item__data'>
-      {numeral(props.place.price / 100).format('$0,0.00')}
+      <PriceFormatter price={props.place.price} />
       <span>/night</span>
     </h3>
   </Link>

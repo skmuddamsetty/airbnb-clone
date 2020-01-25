@@ -10,4 +10,15 @@
     font-weight: 600;
     letter-spacing: 0.75px;
   }
+
+  .formatted-price {
+    font-size: $font-size-x-large;
+    font-weight: 700;
+    &:after {
+      content: 'per night';
+      margin-left: 0.5rem;
+      font-weight: 300;
+      font-size: $font-size-small;
+    }
+  }
 }

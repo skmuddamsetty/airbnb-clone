@@ -21,7 +21,7 @@ const PlaceDetailView = props => (
         <Amenities place={props.place} />
       </div>
       <div className='place-detail-view__booking-box'>
-        <BookingOptionsBox />
+        <BookingOptionsBox place={props.place} />
       </div>
     </div>
   </div>
