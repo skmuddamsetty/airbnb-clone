@@ -13,6 +13,7 @@ const store = configureStore();
 store.dispatch(
   addPlace({
     id: 'asdvdvsdv-Vgvash-167hbdbanhsdb',
+    type_of_place: 'Entire Apartment',
     title: 'Kayaks & Coffee in Novi',
     summary:
       'A true escape, yet at the same time being incredibly well connected to the greater Metro Detroit area',

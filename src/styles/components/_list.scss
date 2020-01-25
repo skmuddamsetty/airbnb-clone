@@ -29,6 +29,10 @@
     margin: 0;
     word-break: break-all;
   }
+  &__small-title {
+    font-size: $s-size;
+    font-weight: 300;
+  }
   &__sub-title {
     color: $grey;
     font-size: $font-size-small;
@@ -39,6 +43,11 @@
       margin: 0;
       padding-left: $s-size;
     }
+    span {
+      font-weight: 300;
+      margin: 0;
+      font-size: $m-size;
+    }
   }
   &__message {
     align-items: center;
@@ -47,6 +56,35 @@
     padding: $m-size;
     &:hover {
       background: none;
+    }
+  }
+  &__amenities {
+    h4 {
+      display: none;
+    }
+    .amenities {
+      display: flex;
+      &__item {
+        padding: 0;
+        font-size: $s-size;
+        margin: 0;
+        &:not(:last-child) {
+          &:after {
+            content: '.';
+          }
+        }
+      }
+    }
+  }
+  &__place-plan-overview {
+    font-size: $s-size;
+    span {
+      margin-right: 0 !important;
+      &:not(:last-child) {
+        &:after {
+          content: '.';
+        }
+      }
     }
   }
 }

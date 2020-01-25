@@ -16,7 +16,8 @@ export const addPlace = ({
   reviews = [],
   createdAt = 0,
   id = undefined,
-  bullet_points = []
+  bullet_points = [],
+  type_of_place = ''
 } = {}) => ({
   type: 'ADD_PLACE',
   place: {
@@ -34,7 +35,8 @@ export const addPlace = ({
     accessibility,
     availability,
     reviews,
-    bullet_points
+    bullet_points,
+    type_of_place
   }
 });
 
