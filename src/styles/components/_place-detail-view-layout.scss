@@ -1,0 +1,59 @@
+.place-detail-view {
+  display: flex;
+  max-width: 120rem;
+  margin: 0 auto;
+  justify-content: space-between;
+  &__overview {
+    flex: 0 0 65%;
+    padding-right: 13rem;
+  }
+  &__booking-box {
+    flex: 1;
+    border: 1px solid #f0eeee;
+    padding: 2rem;
+  }
+  h1 {
+    font-size: 3.2rem;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin: 0;
+  }
+
+  &__location {
+    color: #484848;
+    font-size: 1.4rem;
+    margin-bottom: 1.6rem;
+  }
+
+  &__room-details {
+    span {
+      &:not(:last-child) {
+        margin-right: 1.5rem;
+      }
+    }
+  }
+
+  .divider {
+    border-bottom: 1px solid #f4f2f2;
+    margin: 1.6rem 0;
+  }
+}
+
+.bullet-points {
+  &__box {
+    &:not(:first-child) {
+      margin-top: 1.6rem;
+    }
+  }
+}
+
+.amenities {
+  column-width: 25rem;
+  column-gap: 2rem;
+  &__item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding: 1rem;
+    margin: 0 0 1em 0;
+  }
+}

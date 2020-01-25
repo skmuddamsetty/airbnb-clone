@@ -1,11 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html {
   font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Fira Code', Helvetica, Arial, sans-serif;
   font-size: $m-size;
   color: rgb(72, 72, 72) !important;
+  line-height: 1.6;
 }
 
 button {
