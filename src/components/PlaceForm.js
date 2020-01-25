@@ -53,39 +53,46 @@ class PlaceForm extends React.Component {
   };
   render() {
     return (
-      <div>
-        {this.state.error ? <p>{this.state.error}</p> : ''}
-        <form onSubmit={this.submitHandler}>
-          <input
-            type='text'
-            placeholder='Title'
-            autoFocus
-            value={this.state.title}
-            onChange={this.titleChangeHandler}
-          />
-          <input
-            type='text'
-            placeholder='Price per night'
-            value={this.state.price}
-            onChange={this.priceChangeHandler}
-          />
-          <SingleDatePicker
-            date={this.state.createdAt}
-            onDateChange={this.dateChangeHandler}
-            focused={this.state.calendarFocused}
-            onFocusChange={this.calendarFocusHandler}
-            numberOfMonths={1}
-          />
-          <textarea
-            placeholder='Summary'
-            value={this.state.summary}
-            onChange={this.summaryChangeHandler}
-          ></textarea>
+      <form className='form' onSubmit={this.submitHandler}>
+        {this.state.error ? (
+          <p className='form__error'>{this.state.error}</p>
+        ) : (
+          ''
+        )}
+        <input
+          type='text'
+          placeholder='Title'
+          autoFocus
+          value={this.state.title}
+          onChange={this.titleChangeHandler}
+          className='text-input'
+        />
+        <input
+          type='text'
+          placeholder='Price per night'
+          value={this.state.price}
+          onChange={this.priceChangeHandler}
+          className='text-input'
+        />
+        <SingleDatePicker
+          date={this.state.createdAt}
+          onDateChange={this.dateChangeHandler}
+          focused={this.state.calendarFocused}
+          onFocusChange={this.calendarFocusHandler}
+          numberOfMonths={1}
+        />
+        <textarea
+          placeholder='Summary'
+          value={this.state.summary}
+          onChange={this.summaryChangeHandler}
+          className='text-area'
+        ></textarea>
+        <div>
           <button className='button' type='submit'>
-            Submit
+            Save Hosting Place
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     );
   }
 }

@@ -7,22 +7,25 @@ const EditHostingPlacePage = props => {
   return (
     <div>
       <h1>Edit Page</h1>
-      <PlaceForm
-        place={props.place}
-        onSubmit={place => {
-          props.dispatch(editPlace(props.place.id, place));
-          props.history.push('/');
-        }}
-      />
-      <div>
-        <button
-          onClick={e => {
-            props.dispatch(removePlace({ id: props.place.id }));
+      <div className='content-container'>
+        <PlaceForm
+          place={props.place}
+          onSubmit={place => {
+            props.dispatch(editPlace(props.place.id, place));
             props.history.push('/');
           }}
-        >
-          Remove
-        </button>
+        />
+        <div>
+          <button
+            className='button button--secondary'
+            onClick={e => {
+              props.dispatch(removePlace({ id: props.place.id }));
+              props.history.push('/');
+            }}
+          >
+            Remove Hosting Place
+          </button>
+        </div>
       </div>
     </div>
   );
