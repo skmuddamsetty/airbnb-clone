@@ -2,6 +2,7 @@
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
+  padding: $l-size 0;
   &__overview {
     flex: 0 0 65%;
     padding-right: 10rem;
