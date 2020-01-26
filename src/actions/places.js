@@ -21,7 +21,8 @@ export const addPlace = ({
 } = {}) => ({
   type: 'ADD_PLACE',
   place: {
-    id: undefined ? uuid() : id,
+    // id: undefined ? uuid() : id,
+    id: uuid(),
     title,
     summary,
     price,
