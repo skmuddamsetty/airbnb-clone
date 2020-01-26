@@ -1,5 +1,5 @@
 import { addPlace, editPlace, removePlace } from '../../actions/places';
-
+// TODO
 test('should setup removePlace action object', () => {
   const action = removePlace({ id: '123abc' });
   expect(action).toEqual({ type: 'REMOVE_PLACE', id: '123abc' });
