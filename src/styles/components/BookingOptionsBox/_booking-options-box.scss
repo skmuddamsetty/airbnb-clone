@@ -23,6 +23,32 @@
       font-size: $font-size-small;
     }
   }
+
+  .selected-number-of-nights {
+    font-size: $font-size-small;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .formatted-price {
+      font-weight: 300;
+      font-size: $font-size-small;
+      &:after {
+        content: '';
+        margin-right: 0.3rem;
+      }
+    }
+    .number-of-nights-text {
+      &::before {
+        content: '*';
+        margin-left: -0.3rem;
+        margin-right: 0.3rem;
+      }
+      &:after {
+        content: 'nights';
+        margin-left: 0.3rem;
+      }
+    }
+  }
   &__date-range-picker {
     margin-bottom: $s-size;
   }
