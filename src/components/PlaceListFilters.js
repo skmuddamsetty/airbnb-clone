@@ -11,7 +11,13 @@ import { DateRangePicker } from 'react-dates';
 
 class PlaceListFilters extends React.Component {
   state = {
-    calendarFocused: null
+    calendarFocused: null,
+    displayTypeOfPlacesFilters: false
+  };
+  typeOfPlaceHandler = () => {
+    this.setState({
+      displayTypeOfPlacesFilters: !this.state.displayTypeOfPlacesFilters
+    });
   };
   datesChangeHandler = ({ startDate, endDate }) => {
     this.props.dispatch(setStartDate(startDate));
@@ -63,6 +69,25 @@ class PlaceListFilters extends React.Component {
               startDatePlaceholderText={'CHECK-IN'}
               endDatePlaceholderText={'CHECK-OUT'}
             />
+          </div>
+          <div className='input-group__item'>
+            <div className='filters-form'>
+              <button
+                className='button button--teritiary'
+                onClick={this.typeOfPlaceHandler}
+              >
+                Type Of Place
+              </button>
+              {this.state.displayTypeOfPlacesFilters ? (
+                <form className='filters-form__type-of-place'>
+                  <div>Checkbox 1</div>
+                  <div>Checkbox 2</div>
+                  <div>Checkbox 3</div>
+                </form>
+              ) : (
+                ''
+              )}
+            </div>
           </div>
         </div>
       </div>
