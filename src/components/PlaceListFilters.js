@@ -60,6 +60,8 @@ class PlaceListFilters extends React.Component {
               onFocusChange={this.calendarFocusChangeHandler}
               numberOfMonths={1}
               showClearDates={true}
+              startDatePlaceholderText={'CHECK-IN'}
+              endDatePlaceholderText={'CHECK-OUT'}
             />
           </div>
         </div>

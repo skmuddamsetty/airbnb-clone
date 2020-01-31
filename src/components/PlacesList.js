@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PlaceListItem from './PlaceListItem';
 import getVisiblePlaces from '../selectors/places';
+import Divider from './Divider';
 
 const PlacesList = props => (
   <div className='content-container'>
@@ -13,7 +14,14 @@ const PlacesList = props => (
     <div className='list-body'>
       {props.places && props.places.length === 0 ? (
         <div className='list-item list-item__message'>
-          <span>No Hosting Places</span>
+          <div className='no_places'>
+            <span>No Hosting Places</span>
+            <Divider />
+            <span>
+              We couldn't find anything matching your search. Try searching
+              other keywords.
+            </span>
+          </div>
         </div>
       ) : (
         props.places.map(place => {

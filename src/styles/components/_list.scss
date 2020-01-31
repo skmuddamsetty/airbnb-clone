@@ -25,6 +25,10 @@
     padding: $m-size;
     align-items: center;
   }
+  .no_places {
+    flex-direction: column;
+    text-align: center;
+  }
   &__title {
     margin: 0;
     word-break: break-all;
