@@ -4,7 +4,11 @@ const Amenities = props => (
     <h4>Ameneties</h4>
     <div className='amenities'>
       {props.place.amenities.map(amenity => {
-        return <p className='amenities__item'>{amenity}</p>;
+        return (
+          <p className='amenities__item' key={amenity}>
+            {amenity}
+          </p>
+        );
       })}
     </div>
   </div>

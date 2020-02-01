@@ -18,3 +18,10 @@ export const setEndDate = (endDate = undefined) => ({
   type: 'SET_END_DATE',
   endDate
 });
+
+// SET_TYPE_OF_PLACES
+
+export const setTypesOfPlaces = (types_of_places = []) => ({
+  type: 'SET_TYPES_OF_PLACES',
+  types_of_places
+});

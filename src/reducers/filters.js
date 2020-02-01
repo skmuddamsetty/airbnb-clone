@@ -4,7 +4,8 @@ const filtersReducerDefaultState = {
   text: '',
   sortBy: 'date',
   startDate: moment().startOf('month'),
-  endDate: moment().endOf('month')
+  endDate: moment().endOf('month'),
+  types_of_places: []
 };
 const filtersReducer = (state = filtersReducerDefaultState, action) => {
   switch (action.type) {
@@ -18,6 +19,11 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
       return { ...state, startDate: action.startDate };
     case 'SET_END_DATE':
       return { ...state, endDate: action.endDate };
+    case 'SET_TYPE_OF_PLACES':
+      return {
+        ...state,
+        types_of_places: [...state.types_of_places, ...action.types_of_places]
+      };
     default:
       return state;
   }

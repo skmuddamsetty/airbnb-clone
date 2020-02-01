@@ -5,7 +5,8 @@ import {
   sortByDate,
   sortByPrice,
   setStartDate,
-  setEndDate
+  setEndDate,
+  setTypesOfPlaces
 } from '../actions/filters';
 import { DateRangePicker } from 'react-dates';
 
@@ -13,22 +14,51 @@ class PlaceListFilters extends React.Component {
   state = {
     calendarFocused: null,
     displayTypeOfPlacesFilters: false,
-    types_of_places: []
+    types_of_places: [],
+    checkbox_entire_place: false,
+    checkbox_private_place: false,
+    checkbox_hotel_room: false,
+    checkbox_shared_room: false
   };
+
   typeOfPlaceHandler = () => {
-    this.setState({
+    this.setState(() => ({
       displayTypeOfPlacesFilters: !this.state.displayTypeOfPlacesFilters
-    });
+    }));
   };
+
   datesChangeHandler = ({ startDate, endDate }) => {
     this.props.dispatch(setStartDate(startDate));
     this.props.dispatch(setEndDate(endDate));
   };
+
   calendarFocusChangeHandler = calendarFocused => {
     this.setState(() => ({ calendarFocused }));
   };
+
+  saveTypesOfPlaceHandler = () => {
+    this.props.dispatch(setTypesOfPlaces(this.state.types_of_places));
+    this.setState(() => ({ displayTypeOfPlacesFilters: false }));
+  };
+
   checkboxHandler = e => {
     if (!e.target.checked) {
+      switch (e.target.value) {
+        case 'Entire Place':
+          this.setState(() => ({ checkbox_entire_place: false }));
+          break;
+        case 'Private Room':
+          this.setState(() => ({ checkbox_private_place: false }));
+          break;
+        case 'Hotel Room':
+          this.setState(() => ({ checkbox_hotel_room: false }));
+          break;
+        case 'Shared Room':
+          this.setState(() => ({ checkbox_shared_room: false }));
+          break;
+        default:
+          break;
+      }
       let types_of_places = [...this.state.types_of_places];
       types_of_places = types_of_places.filter(
         place => place !== e.target.value
@@ -37,11 +67,28 @@ class PlaceListFilters extends React.Component {
         types_of_places
       });
     } else {
+      switch (e.target.value) {
+        case 'Entire Place':
+          this.setState(() => ({ checkbox_entire_place: true }));
+          break;
+        case 'Private Room':
+          this.setState(() => ({ checkbox_private_place: true }));
+          break;
+        case 'Hotel Room':
+          this.setState(() => ({ checkbox_hotel_room: true }));
+          break;
+        case 'Shared Room':
+          this.setState(() => ({ checkbox_shared_room: true }));
+          break;
+        default:
+          break;
+      }
       this.setState({
         types_of_places: [...this.state.types_of_places, e.target.value]
       });
     }
   };
+
   render() {
     return (
       <div className='content-container'>
@@ -99,8 +146,10 @@ class PlaceListFilters extends React.Component {
                   <div className='filters-form__checkbox'>
                     <input
                       type='checkbox'
-                      onClick={this.checkboxHandler}
+                      onChange={this.checkboxHandler}
                       value='Entire Place'
+                      checked={this.state.checkbox_entire_place}
+                      id='checkbox_entire_place'
                     ></input>
                     <div className='filters-form__checkbox-description'>
                       <p>Entire Place</p>
@@ -110,8 +159,10 @@ class PlaceListFilters extends React.Component {
                   <div className='filters-form__checkbox'>
                     <input
                       type='checkbox'
-                      onClick={this.checkboxHandler}
+                      onChange={this.checkboxHandler}
                       value='Private Room'
+                      checked={this.state.checkbox_private_place}
+                      id='checkbox_private_place'
                     ></input>
                     <div className='filters-form__checkbox-description'>
                       <p>Private Room</p>
@@ -121,8 +172,10 @@ class PlaceListFilters extends React.Component {
                   <div className='filters-form__checkbox'>
                     <input
                       type='checkbox'
-                      onClick={this.checkboxHandler}
+                      onChange={this.checkboxHandler}
                       value='Hotel Room'
+                      checked={this.state.checkbox_hotel_room}
+                      id='checkbox_hotel_room'
                     ></input>
                     <div className='filters-form__checkbox-description'>
                       <p>Hotel Room</p>
@@ -135,14 +188,23 @@ class PlaceListFilters extends React.Component {
                   <div className='filters-form__checkbox'>
                     <input
                       type='checkbox'
-                      onClick={this.checkboxHandler}
+                      onChange={this.checkboxHandler}
                       value='Shared Room'
+                      checked={this.state.checkbox_shared_room}
+                      id='checkbox_shared_room'
                     ></input>
                     <div className='filters-form__checkbox-description'>
                       <p>Shared Room</p>
                       <p>Stay in a shared space, like a common room</p>
                     </div>
                   </div>
+                  <button
+                    type='button'
+                    className='button button--right'
+                    onClick={this.saveTypesOfPlaceHandler}
+                  >
+                    Save
+                  </button>
                 </form>
               ) : (
                 ''
