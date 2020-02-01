@@ -8,5 +8,24 @@
     width: 100%;
     padding: 1rem;
     border-radius: 5px;
+    min-width: 30rem;
+  }
+  &__checkbox {
+    display: flex;
+    align-items: flex-start;
+    [type='checkbox'] {
+      height: 24px;
+    }
+    > * {
+      &:not(:first-child) {
+        margin-left: 0.5rem;
+      }
+      margin-bottom: 1rem;
+    }
+    &-description {
+      &:last-child {
+        font-size: 1.4rem;
+      }
+    }
   }
 }

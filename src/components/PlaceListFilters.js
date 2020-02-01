@@ -12,7 +12,8 @@ import { DateRangePicker } from 'react-dates';
 class PlaceListFilters extends React.Component {
   state = {
     calendarFocused: null,
-    displayTypeOfPlacesFilters: false
+    displayTypeOfPlacesFilters: false,
+    types_of_places: []
   };
   typeOfPlaceHandler = () => {
     this.setState({
@@ -25,6 +26,21 @@ class PlaceListFilters extends React.Component {
   };
   calendarFocusChangeHandler = calendarFocused => {
     this.setState(() => ({ calendarFocused }));
+  };
+  checkboxHandler = e => {
+    if (!e.target.checked) {
+      let types_of_places = [...this.state.types_of_places];
+      types_of_places = types_of_places.filter(
+        place => place !== e.target.value
+      );
+      this.setState({
+        types_of_places
+      });
+    } else {
+      this.setState({
+        types_of_places: [...this.state.types_of_places, e.target.value]
+      });
+    }
   };
   render() {
     return (
@@ -80,9 +96,53 @@ class PlaceListFilters extends React.Component {
               </button>
               {this.state.displayTypeOfPlacesFilters ? (
                 <form className='filters-form__type-of-place'>
-                  <div>Checkbox 1</div>
-                  <div>Checkbox 2</div>
-                  <div>Checkbox 3</div>
+                  <div className='filters-form__checkbox'>
+                    <input
+                      type='checkbox'
+                      onClick={this.checkboxHandler}
+                      value='Entire Place'
+                    ></input>
+                    <div className='filters-form__checkbox-description'>
+                      <p>Entire Place</p>
+                      <p>Have a place to yourself</p>
+                    </div>
+                  </div>
+                  <div className='filters-form__checkbox'>
+                    <input
+                      type='checkbox'
+                      onClick={this.checkboxHandler}
+                      value='Private Room'
+                    ></input>
+                    <div className='filters-form__checkbox-description'>
+                      <p>Private Room</p>
+                      <p>Have your own room and share some common spaces</p>
+                    </div>
+                  </div>
+                  <div className='filters-form__checkbox'>
+                    <input
+                      type='checkbox'
+                      onClick={this.checkboxHandler}
+                      value='Hotel Room'
+                    ></input>
+                    <div className='filters-form__checkbox-description'>
+                      <p>Hotel Room</p>
+                      <p>
+                        Have a private or shared room in a boutique hotel,
+                        hostel, and more
+                      </p>
+                    </div>
+                  </div>
+                  <div className='filters-form__checkbox'>
+                    <input
+                      type='checkbox'
+                      onClick={this.checkboxHandler}
+                      value='Shared Room'
+                    ></input>
+                    <div className='filters-form__checkbox-description'>
+                      <p>Shared Room</p>
+                      <p>Stay in a shared space, like a common room</p>
+                    </div>
+                  </div>
                 </form>
               ) : (
                 ''
