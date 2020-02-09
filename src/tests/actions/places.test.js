@@ -60,7 +60,6 @@ test('should setup addPlace action object with default values', () => {
       availability: '',
       reviews: [],
       createdAt: 0,
-      id: undefined,
       bullet_points: [],
       type_of_place: '',
       id: expect.any(String)
